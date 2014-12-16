@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+from unipath import Path
+
 PROJECT_DIR = Path(__file__).ancestor(4)
 BASE_DIR = Path(__file__).ancestor(3)
 
