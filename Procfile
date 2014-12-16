@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath nba_stats nba_stats.wsgi --log-file -
