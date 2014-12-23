@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
 from unipath import Path
 
@@ -59,11 +60,9 @@ WSGI_APPLICATION = 'nba_stats.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
+# Parse database configuration from $DATABASE_URL
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(default='sqlite:///{base}/db.sqlite3'.format(base=BASE_DIR))
 }
 
 # Internationalization
