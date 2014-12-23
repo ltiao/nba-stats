@@ -22,6 +22,26 @@ and Digital Ocean for our production environment to ensure mobility and
 versatility and to avoid being forced into architectural decisions based 
 on the needs of the hosting provider. 
 
+Since the Heroku Postgres Hobby Dev plan has a row limit of 10,000, it
+will not be useful for anything beside a basic remote development server.
+On the other hand, Digital Ocean does not pose limitations of this kind,
+so we can use it for our staging / demo environment. 
 
+Before moving on, let's set up the local development environment.
+
++++++++++++++++++++++++
+Development Environment
++++++++++++++++++++++++
+
+Note: These steps were performed on Mac OS X 10.10.1 (Yosemite)
+
+1.  First, ensure the latest version of Python is installed exactly
+according to this http://docs.python-guide.org/en/latest/starting/install/osx/
+so ``setuptools`` and ``pip`` are installed (you'll need to install
+GCC, Homebrew). 
+2.  Next, install `virtualenv` and `virtualenvwrapper`::
+
+      $ pip install virtualenv virtualenvwrapper
+3.  fef 
 
 .. [1] "Premature optimization is the root of all evil" - Donald Knuth
