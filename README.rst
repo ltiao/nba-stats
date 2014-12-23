@@ -36,9 +36,9 @@ Development Environment
 Note: These steps were performed on Mac OS X 10.10.1 (Yosemite)
 
 1.  First, ensure the latest version of Python is installed exactly
-according to this http://docs.python-guide.org/en/latest/starting/install/osx/
-so ``setuptools`` and ``pip`` are installed (you'll need to install
-GCC, Homebrew). 
+    according to this http://docs.python-guide.org/en/latest/starting/install/osx/
+    so ``setuptools`` and ``pip`` are installed (you'll need to install
+    GCC, Homebrew). 
 2.  Next, install `virtualenv` and `virtualenvwrapper`::
 
       $ pip install virtualenv virtualenvwrapper
