@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nba'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,7 +63,9 @@ WSGI_APPLICATION = 'nba_stats.wsgi.application'
 
 # Parse database configuration from $DATABASE_URL
 DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///{base}/db.sqlite3'.format(base=BASE_DIR))
+    'default': dj_database_url.config(
+        default='sqlite:///{base}/db.sqlite3'.format(base=BASE_DIR)
+    )
 }
 
 # Internationalization

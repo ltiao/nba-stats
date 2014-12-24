@@ -1,0 +1,3 @@
+[submodule "nba_stats_bot"]
+	path = nba_stats_bot
+	url = https://github.com/ltiao/nba_stats_bot.git

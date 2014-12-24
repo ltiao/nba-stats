@@ -48,4 +48,28 @@ Note: These steps were performed on Mac OS X 10.10.1 (Yosemite)
     for more information.
 3.  fef 
 
++++++++++++++++
+Quick Reference
++++++++++++++++
+
+Show list of packages not in ``base.txt``::
+
+	$ pip freeze | diff requirements/base.txt - | grep '>' | cut -d " " -f 2
+
+Digital Ocean ``gunicorn`` log::
+
+	/var/log/upstart/gunicorn.log
+
+Gunicorn configuration::
+
+	/etc/init/gunicorn.conf
+
+Force reload Upstart configuration file (remember to execute 
+after modifying Gunicorn configuration)::
+
+	$ initctl reload-configuration
+
+
+
+
 .. [1] "Premature optimization is the root of all evil" - Donald Knuth
