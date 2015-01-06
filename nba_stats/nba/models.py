@@ -21,19 +21,18 @@ class Person(models.Model):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True)
 
-    def _get_full_name(self):
+    @property
+    def full_name(self):
         "Returns the person's full name."
         return '%s %s' % (self.first_name, self.last_name)
 
-    def _get_age(self):
+    @property
+    def age(self):
         today = date.today()
         return today.year - self.birthdate.year - ((today.month, today.day) \
             < (self.birthdate.month, self.birthdate.day))
-
-    full_name = property(_get_full_name)
-    age = property(_get_age)
 
     def __unicode__(self):
         return self.full_name
@@ -42,5 +41,38 @@ class Person(models.Model):
         abstract = True
         ordering = ['first_name', 'last_name']
 
+class School(models.Model):
+
+    name = models.CharField(max_length=60, unique=True)
+
+    def __unicode__(self):
+        return self.name
+
 class Player(Person, NBAModel):
-    school = models.CharField(max_length=60, null=True)
+
+    school = models.ForeignKey(School, null=True)
+
+class League(models.Model):
+    
+    name = models.CharField(max_length=60)
+
+class Conference(models.Model):
+   
+    name = models.CharField(max_length=60)
+    league = models.ForeignKey(League)
+
+class Division(models.Model):
+    
+    name = models.CharField(max_length=60)
+    conference = models.ForeignKey(Conference)
+
+class Team(NBAModel):
+
+    city = models.CharField(max_length=60)
+    nickname = models.CharField(max_length=60)
+    division = models.ForeignKey(Division)
+
+class Game(NBAModel):
+
+    attendance = models.PositiveIntegerField()
+    

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from nba.models import Player
+from nba.models import Player, League, Conference, Division, School
 
 # class ChoiceInline(admin.TabularInline):
 #     model = Choice
@@ -19,3 +19,7 @@ from nba.models import Player
 # admin.site.register(Question, QuestionAdmin)
 
 admin.site.register(Player)
+admin.site.register(League)
+admin.site.register(Conference)
+admin.site.register(Division)
+admin.site.register(School)
