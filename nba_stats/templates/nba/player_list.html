@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+
+    <div class="list-group">
+      {% for player in players %}
+      <a href="#" class="list-group-item">
+        <div class="media">
+          <div class="media-left">
+            <img class="img-responsive" src="{% if player.photo %}{{ player.photo.url }}{% endif %}" alt="http://placehold.it/92x74" style="width: 92px; height: 74px;">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ player.full_name }}</h4>
+            {{ player.school }}
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+		<ul class="media-list">
+      {% for player in players %}
+		  <li class="media">
+		    <a class="media-left" href="#">
+		      <img class="img-responsive" src="{% if player.photo %}{{ player.photo.url }}{% endif %}" alt="http://placehold.it/92x74" style="width: 92px; height: 74px;">
+		    </a>
+		    <div class="media-body">
+		      <h4 class="media-heading">{{ player.full_name }}</h4>
+          {{ player.school }}
+		    </div>
+		  </li>
+      {% endfor %}
+		</ul>
+	</div>
+  
+  {% if page_obj.has_other_pages %}
+  <nav>
+    <ul class="pagination">
+      <li {% if not page_obj.has_previous %}class="disabled"{% endif %}>
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+        {% else %}
+        <span>
+        {% endif %}
+          <span aria-hidden="true">&laquo;</span>
+        {% if page_obj.has_previous %}
+        </a>
+        {% else %}
+        </span>
+        {% endif %}
+      </li>
+      {% for page_num in page_obj.paginator.page_range %}
+      <li {% if page_num == page_obj.number %}class="active"{% endif %}>
+        <a href="?page={{ page_num }}">{{ page_num }} <span class="sr-only">(current)</span></a>
+      </li>
+      {% endfor %}
+      <li {% if not page_obj.has_next %}class="disabled"{% endif %}>
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+        {% else %}
+        <span>
+        {% endif %}
+          <span aria-hidden="true">&raquo;</span>
+        {% if page_obj.has_next %}
+        </a>
+        {% else %}
+        </span>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+  {% endif %}
+
+{% endblock %}

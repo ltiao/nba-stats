@@ -48,9 +48,13 @@ class School(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta:
+        ordering = ['name']
+
 class Player(Person, NBAModel):
 
     school = models.ForeignKey(School, null=True)
+    photo = models.ImageField(null=True)
 
 class League(models.Model):
     
