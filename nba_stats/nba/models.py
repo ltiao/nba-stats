@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date, datetime
 
 class NBAModelManager(models.Manager):
+   
     def get_by_natural_key(self, nba_id):
         return self.get(nba_id=nba_id)
 
@@ -9,7 +10,8 @@ class NBAModelManager(models.Manager):
 class NBAModel(models.Model):
     objects = NBAModelManager()
 
-    nba_id = models.PositiveIntegerField(null=False, unique=True)
+    nba_id = models.CharField(max_length=30, null=False, unique=True)
+    nba_code = models.CharField(max_length=30, null=True)
 
     def natural_key(self):
         return (self.nba_id,)
@@ -51,10 +53,16 @@ class School(models.Model):
     class Meta:
         ordering = ['name']
 
+def player_photo_uploads_to(instance, filename):
+    return unicode(instance.nba_id)
+
 class Player(Person, NBAModel):
 
     school = models.ForeignKey(School, null=True)
-    photo = models.ImageField(null=True)
+    photo = models.ImageField(
+        upload_to = 'players', 
+        null = True
+    )
 
 class League(models.Model):
     
@@ -63,18 +71,58 @@ class League(models.Model):
 class Conference(models.Model):
    
     name = models.CharField(max_length=60)
-    league = models.ForeignKey(League)
+    league = models.ForeignKey(League, null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
 
 class Division(models.Model):
     
     name = models.CharField(max_length=60)
     conference = models.ForeignKey(Conference)
 
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+
+class Arena(models.Model):
+
+    name = models.CharField(max_length=60, unique=True)
+    capacity = models.PositiveIntegerField(null=True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+
 class Team(NBAModel):
 
+    abbr = models.CharField(max_length=3, unique=True)
     city = models.CharField(max_length=60)
     nickname = models.CharField(max_length=60)
-    division = models.ForeignKey(Division)
+    logo = models.FileField(upload_to='logos', null=True)
+    division = models.ForeignKey(Division, null=True)
+    arena = models.ForeignKey(Arena, null=True)
+
+    @property
+    def name(self):
+        return '%s %s' % (self.city, self.nickname)
+
+    @property
+    def conference(self):
+        return self.division.conference
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        unique_together = ("city", "nickname")
 
 class Game(NBAModel):
 

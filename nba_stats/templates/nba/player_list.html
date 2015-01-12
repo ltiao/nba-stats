@@ -8,7 +8,7 @@
       <a href="#" class="list-group-item">
         <div class="media">
           <div class="media-left">
-            <img class="img-responsive" src="{% if player.photo %}{{ player.photo.url }}{% endif %}" alt="http://placehold.it/92x74" style="width: 92px; height: 74px;">
+            <img class="img-responsive" src="{% if player.photo %}{{ player.photo.url }}{% endif %}" alt="{{ player.full_name }} profile picture" style="width: 92px; height: 74px;">
           </div>
           <div class="media-body">
             <h4 class="media-heading">{{ player.full_name }}</h4>
@@ -18,21 +18,6 @@
       </a>
       {% endfor %}
     </div>
-
-		<ul class="media-list">
-      {% for player in players %}
-		  <li class="media">
-		    <a class="media-left" href="#">
-		      <img class="img-responsive" src="{% if player.photo %}{{ player.photo.url }}{% endif %}" alt="http://placehold.it/92x74" style="width: 92px; height: 74px;">
-		    </a>
-		    <div class="media-body">
-		      <h4 class="media-heading">{{ player.full_name }}</h4>
-          {{ player.school }}
-		    </div>
-		  </li>
-      {% endfor %}
-		</ul>
-	</div>
   
   {% if page_obj.has_other_pages %}
   <nav>
