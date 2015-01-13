@@ -59,6 +59,10 @@ def datetime_range(start, stop, step):
     [datetime.datetime(2016, 5, 2, 0, 0), datetime.datetime(2015, 5, 3, 0, 0), 
     datetime.datetime(2014, 5, 3, 0, 0), datetime.datetime(2013, 5, 3, 0, 0)]
 
+    >>> list(datetime_range(end, start, -YEAR_DELTA)) #doctest: +NORMALIZE_WHITESPACE
+    [datetime.datetime(2016, 5, 2, 0, 0), datetime.datetime(2015, 5, 3, 0, 0), 
+    datetime.datetime(2014, 5, 3, 0, 0), datetime.datetime(2013, 5, 3, 0, 0)]
+
     >>> list(datetime_range(end, start, datetime.timedelta(days=1))) #doctest: +NORMALIZE_WHITESPACE
     []
 
@@ -209,7 +213,8 @@ def season_range(start, stop, step=1):
     '2005-06', '2006-07', '2007-08', '2008-09', 
     '2009-10', '2010-11', '2011-12', '2012-13']
 
-    >>> list(season_range(datetime.date(2002, 3, 5), datetime.datetime(2014, 7, 12))) #doctest: +NORMALIZE_WHITESPACE
+    >>> list(season_range(datetime.date(2002, 3, 5), \
+            datetime.datetime(2014, 7, 12))) #doctest: +NORMALIZE_WHITESPACE
     ['2001-02', '2002-03', '2003-04', '2004-05', 
     '2005-06', '2006-07', '2007-08', '2008-09', 
     '2009-10', '2010-11', '2011-12', '2012-13']
@@ -225,7 +230,7 @@ def season_range(start, stop, step=1):
     '2006-07', '2007-08', '2008-09', '2009-10', 
     '2010-11', '2011-12', '2012-13']
 
-    >>> list(season_range('2002-03', '2014', 4)) # Gotcha - leap year 
+    >>> list(season_range('2002-03', '2014', 4)) # Gotcha - leap year in between
     ['2002-03', '2006-07', '2010-11']
 
     >>> list(season_range('2014-15', '2000-01', -1)) #doctest: +NORMALIZE_WHITESPACE
