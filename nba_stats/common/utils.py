@@ -27,6 +27,7 @@ datetime.datetime(2006, 12, 31, 0, 0)
 """
 
 import datetime
+
 from dateutil import relativedelta
 from itertools import chain
 
@@ -262,12 +263,189 @@ def season_range(start, stop, step=1):
     return (date_to_season_str(current) for current in \
         datetime_range(start_date, stop_date, step_delta))
 
-merge_dicts = lambda *args: dict(chain(*map(lambda x: x.items(), args)))
+def merge_dicts(*args):
+    """
+    Equivalent to::
+        lambda *args: dict(chain(*map(lambda x: x.items(), args)))
+    
+    >>> a = {'x': 32, 'y': 12, 'z': 53}
+    >>> b = {'u': 13, 'v': 10}
+    >>> c = {'v': 88, 'w': 21, 'x': 98}
+    
+    >>> merge_dicts(a, b, c) == {'u': 13, 'w': 21, 'v': 88, 'y': 12, 'x': 98, 'z': 53}
+    True
+
+    >>> merge_dicts(a, b) == {'y': 12, 'x': 32, 'z': 53, 'u': 13, 'v': 10}
+    ... # No overlap
+    True
+
+    >>> merge_dicts(b, c) == {'x': 98, 'u': 13, 'w': 21, 'v': 88}
+    ... # Overlap
+    True
+
+    >>> merge_dicts(c, b) == {'x': 98, 'u': 13, 'w': 21, 'v': 10}
+    ... # Overlap, different order gives different results
+    True
+
+    >>> merge_dicts(a) == a
+    True
+
+    >>> merge_dicts()
+    {}
+    """
+    return dict(chain(*map(lambda x: x.items(), args)))
+
+list_minus = lambda l, m: filter(lambda x: x not in m, l)
+list_minus.__doc__ = """
+>>> list_minus([1, 3, 4, 6], [1, 2, 4, 7, 9])
+[3, 6]
+>>> list_minus([1, 2, 4, 7, 9], [1, 3, 4, 6])
+[2, 7, 9]
+>>> list_minus([], [1, 2, 4, 7, 9])
+[]
+>>> list_minus([1, 3, 4, 6], [])
+[1, 3, 4, 6]
+>>> list_minus([], [])
+[]
+"""
+
+def dict_subset(d, keys, proper=False, default=None):
+    """
+    Not to be confused with `fromkeys(seq[, value])`
+
+    Roughly equivalent to::
+        lambda d, keys: {key: d.get(key, default) for key in keys}
+
+    >>> a = {'x': 32, 'y': 12, 'z': 53}
+    >>> dict_subset(a, ['x', 'z']) == {'x': 32, 'z': 53}
+    True
+    >>> dict_subset({}, [])
+    {}
+    >>> dict_subset({}, ['x', 'z']) == {'x': None, 'z': None}
+    True
+    >>> dict_subset(a, [])
+    {}
+    >>> dict_subset(a, ['w', 'x', 'y']) == {'y': 12, 'x': 32, 'w': None}
+    True
+    >>> dict_subset(a, ['u', 'v']) == {'u': None, 'v': None}
+    True
+    >>> dict_subset(a, ['u', 'v'], default=4) == {'u': 4, 'v': 4}
+    True
+
+    >>> dict_subset(a, ['x', 'z'], proper=True) == {'x': 32, 'z': 53}
+    True
+    >>> dict_subset({}, [])
+    {}
+    >>> dict_subset({}, ['x', 'z'], proper=True)
+    {}
+    >>> dict_subset(a, [], proper=True)
+    {}
+    >>> dict_subset(a, ['w', 'x', 'y'], proper=True) == {'y': 12, 'x': 32}
+    True
+    >>> dict_subset(a, ['u', 'v'], proper=True)
+    {}
+    >>> dict_subset(a, ['u', 'v'], proper=True, default=4)
+    ... # default is ignored if proper is True
+    {}
+    """
+    if proper:
+        return {key: d[key] for key in keys if key in d}
+    else:
+        return {key: d.get(key, default) for key in keys}
+
+dict_minus = lambda d, *keys: _dict_minus(d, keys)
+
+def _dict_minus(d, keys):
+    """
+    >>> a = {'x': 32, 'y': 12, 'z': 53}
+
+    >>> _dict_minus(a, ['y']) == {'x': 32, 'z': 53}
+    True
+
+    >>> _dict_minus({}, [])
+    {}
+
+    >>> _dict_minus(a, []) == a
+    True
+
+    >>> _dict_minus({}, ['x', 'y'])
+    {}
+
+    >>> _dict_minus(a, a.keys())
+    {}
+
+    >>> _dict_minus(a, ['v', 'w', 'x']) == {'y': 12, 'z': 53}
+    True
+
+    >>> _dict_minus(a, ['u', 'v', 'w']) == a
+    True
+    """
+    return {key: d[key] for key in d if key not in keys}
+
+def iter_of_dicts_to_nested_dict(lst, key=None):
+    """
+    Roughly equivalent to::
+        lambda lst, key: {d[key]: d for d in lst}
+
+    >>> l = [
+    ...     {'id': 2, 'first_name': 'Malcolm', 'last_name': 'Reynolds'},
+    ...     {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne'},
+    ...     {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+    ...     {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye'},
+    ...     {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+    ... ]
+    
+    >>> iter_of_dicts_to_nested_dict(l, key='id') == {
+    ...     2: {'first_name': 'Malcolm', 'last_name': 'Reynolds'}, 
+    ...     3: {'first_name': 'Zoe', 'last_name': 'Washburne'}, 
+    ...     4: {'first_name': 'Jayne', 'last_name': 'Cobb'}, 
+    ...     5: {'first_name': 'Kaylee', 'last_name': 'Frye'}, 
+    ...     7: {'first_name': 'Wash', 'last_name': 'Washburne'}
+    ... }
+    True
+
+    >>> iter_of_dicts_to_nested_dict(l, key='last_name') == {
+    ...     'Washburne': {'first_name': 'Wash', 'id': 7}, 
+    ...     'Reynolds': {'first_name': 'Malcolm', 'id': 2}, 
+    ...     'Frye': {'first_name': 'Kaylee', 'id': 5}, 
+    ...     'Cobb': {'first_name': 'Jayne', 'id': 4}
+    ... }
+    True
+
+    >>> iter_of_dicts_to_nested_dict([])
+    {}
+
+    >>> iter_of_dicts_to_nested_dict(l) == {
+    ...     0: {'id': 2, 'first_name': 'Malcolm', 'last_name': 'Reynolds'},
+    ...     1: {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne'},
+    ...     2: {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+    ...     3: {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye'},
+    ...     4: {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+    ... }
+    True
+
+    >>> m = [
+    ...     {'x': 32, 'y': 12, 'z': 53},
+    ...     {'u': 13, 'v': 10},
+    ...     {'v': 88, 'w': 21, 'x': 98}
+    ... ]
+
+    >>> iter_of_dicts_to_nested_dict(m, key='x')
+    Traceback (most recent call last):
+        ...
+    KeyError: 'x'
+    """
+    if key is not None:
+        return {d[key]: dict_minus(d, key) for d in lst}
+    else:
+        return {i: d for i, d in enumerate(lst)}
 
 # TODO: come up with catchier names 
-list_of_dicts_to_dict_of_dicts = lambda lst, key: {d.pop(key): d for d in lst}
+list_of_dicts_to_dict_of_dicts = lambda lst, key: {d[key]: d for d in lst}
+
 list_of_lists_to_iter_of_dicts = lambda lst, cols: (dict(zip(cols, row)) for row in lst)
 list_of_lists_to_list_of_dicts = lambda lst, cols: list(list_of_lists_to_iter_of_dicts(lst, cols))
+
 split_dict_to_iter_of_dicts = lambda d, lst_key, col_key: list_of_lists_to_iter_of_dicts(d[lst_key], d[col_key])
 split_dict_to_list_of_dicts = lambda d, lst_key, col_key: list_of_lists_to_list_of_dicts(d[lst_key], d[col_key])
 
