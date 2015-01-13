@@ -382,7 +382,9 @@ def _dict_minus(d, keys):
     """
     return {key: d[key] for key in d if key not in keys}
 
-def iter_of_dicts_to_nested_dict(lst, key=None):
+# TODO: come up with catchier names 
+
+def iter_of_dicts_to_nested_dict(iterable, key=None):
     """
     Roughly equivalent to::
         lambda lst, key: {d[key]: d for d in lst}
@@ -436,18 +438,159 @@ def iter_of_dicts_to_nested_dict(lst, key=None):
     KeyError: 'x'
     """
     if key is not None:
-        return {d[key]: dict_minus(d, key) for d in lst}
+        return {d[key]: dict_minus(d, key) for d in iterable}
     else:
-        return {i: d for i, d in enumerate(lst)}
+        return {i: d for i, d in enumerate(iterable)}
 
-# TODO: come up with catchier names 
+# deprecated
 list_of_dicts_to_dict_of_dicts = lambda lst, key: {d[key]: d for d in lst}
 
+def iter_of_list_to_iter_of_dicts(iterable, header):
+
+    if not header and iterable:
+        raise ValueError('empty header')
+    
+    return (dict(zip(header, row)) for row in iterable)
+
+iter_of_list_to_list_of_dicts = lambda iterable, header: list(iter_of_list_to_iter_of_dicts(iterable, header))
+iter_of_list_to_list_of_dicts.__doc__ = """
+Roughly equivalent to::
+    lambda iterable, header: dict(zip(header, row)) for row in iterable
+
+>>> a = [
+...     [2, 'Malcolm', 'Reynolds'],
+...     [3, 'Zoe', 'Washburne'],
+...     [4, 'Jayne', 'Cobb'],
+...     [5, 'Kaylee', 'Frye'],
+...     [7, 'Wash', 'Washburne'],
+... ]
+
+>>> iter_of_list_to_list_of_dicts(a, ['id', 'first_name', 'last_name']) == [
+...     {'id': 2, 'first_name': 'Malcolm', 'last_name': 'Reynolds'},
+...     {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne'},
+...     {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+...     {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye'},
+...     {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+... ]
+True
+
+>>> iter_of_list_to_list_of_dicts(a, ['id', 'last_name']) == [
+...    {'last_name': 'Malcolm', 'id': 2}, 
+...    {'last_name': 'Zoe', 'id': 3}, 
+...    {'last_name': 'Jayne', 'id': 4}, 
+...    {'last_name': 'Kaylee', 'id': 5}, 
+...    {'last_name': 'Wash', 'id': 7}
+... ]
+True
+
+>>> iter_of_list_to_list_of_dicts([], [])
+[]
+
+>>> iter_of_list_to_list_of_dicts([], ['id', 'last_name'])
+[]
+
+>>> iter_of_list_to_list_of_dicts(a, [])
+Traceback (most recent call last):
+    ...
+ValueError: empty header
+
+>>> iter_of_list_to_list_of_dicts(a, ['id', 'first_name', 'last_name', 'birthdate']) == [
+...     {'id': 2, 'first_name': 'Malcolm', 'last_name': 'Reynolds'},
+...     {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne'},
+...     {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+...     {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye'},
+...     {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+... ]
+True
+
+>>> b = [
+...     [],
+...     [2, 'Malcolm'],
+...     [3, 'Zoe', 'Washburne', '11/12/1972'],
+...     [4, 'Jayne', 'Cobb'],
+...     [5, 'Kaylee', 'Frye', '03/11/1985', 'Mechanic'],
+...     [7, 'Wash', 'Washburne'],
+... ]
+
+>>> iter_of_list_to_list_of_dicts(b, [])
+Traceback (most recent call last):
+    ...
+ValueError: empty header
+
+>>> iter_of_list_to_list_of_dicts(b, ['id', 'first_name', 'last_name']) == [
+...     {},
+...     {'id': 2, 'first_name': 'Malcolm'},
+...     {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne'},
+...     {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+...     {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye'},
+...     {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+... ]
+True
+
+>>> iter_of_list_to_list_of_dicts(b, ['id', 'last_name']) == [
+...     {},
+...     {'id': 2, 'last_name': 'Malcolm'},
+...     {'id': 3, 'last_name': 'Zoe'},
+...     {'id': 4, 'last_name': 'Jayne'},
+...     {'id': 5, 'last_name': 'Kaylee'},
+...     {'id': 7, 'last_name': 'Wash'},
+... ]
+True
+
+>>> iter_of_list_to_list_of_dicts(b, ['id', 'first_name', 'last_name', 'birthdate']) == [
+...     {},
+...     {'id': 2, 'first_name': 'Malcolm'},
+...     {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne', 'birthdate': '11/12/1972'},
+...     {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+...     {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye', 'birthdate': '03/11/1985'},
+...     {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+... ]
+True
+"""
+
+# deprecated
 list_of_lists_to_iter_of_dicts = lambda lst, cols: (dict(zip(cols, row)) for row in lst)
+# deprecated
 list_of_lists_to_list_of_dicts = lambda lst, cols: list(list_of_lists_to_iter_of_dicts(lst, cols))
 
-split_dict_to_iter_of_dicts = lambda d, lst_key, col_key: list_of_lists_to_iter_of_dicts(d[lst_key], d[col_key])
-split_dict_to_list_of_dicts = lambda d, lst_key, col_key: list_of_lists_to_list_of_dicts(d[lst_key], d[col_key])
+split_dict_to_iter_of_dicts = lambda d, iterable_key, header_key: \
+    iter_of_list_to_iter_of_dicts(d.get(iterable_key, []), d.get(header_key, []))
+
+split_dict_to_list_of_dicts = lambda d, iterable_key, header_key: \
+    list(split_dict_to_iter_of_dicts(d, iterable_key, header_key))
+
+split_dict_to_list_of_dicts.__doc__ = """
+>>> a = {
+...     'rows': [
+...         [2, 'Malcolm', 'Reynolds'],
+...         [3, 'Zoe', 'Washburne'],
+...         [4, 'Jayne', 'Cobb'],
+...         [5, 'Kaylee', 'Frye'],
+...         [7, 'Wash', 'Washburne'],
+...     ],
+...     'header': ['id', 'first_name', 'last_name']
+... }
+
+>>> split_dict_to_list_of_dicts(a, 'rows', 'header') == [
+...     {'id': 2, 'first_name': 'Malcolm', 'last_name': 'Reynolds'},
+...     {'id': 3, 'first_name': 'Zoe', 'last_name': 'Washburne'},
+...     {'id': 4, 'first_name': 'Jayne', 'last_name': 'Cobb'},
+...     {'id': 5, 'first_name': 'Kaylee', 'last_name': 'Frye'},
+...     {'id': 7, 'first_name': 'Wash', 'last_name': 'Washburne'},
+... ]
+True
+
+>>> split_dict_to_list_of_dicts(a, 'rowSet', 'header')
+[]
+
+>>> split_dict_to_list_of_dicts(a, 'rowSet', 'Headers')
+[]
+
+>>> split_dict_to_list_of_dicts(a, 'rows', 'Headers')
+Traceback (most recent call last):
+    ...
+ValueError: empty header
+"""
 
 if __name__ == "__main__":
     import doctest
