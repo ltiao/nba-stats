@@ -569,6 +569,7 @@ split_dict_to_list_of_dicts.__doc__ = """
 ...         [7, 'Wash', 'Washburne'],
 ...     ],
 ...     'header': ['id', 'first_name', 'last_name']
+...     'other': 'anything else'
 ... }
 
 >>> split_dict_to_list_of_dicts(a, 'rows', 'header') == [
