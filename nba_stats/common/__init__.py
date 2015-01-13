@@ -1,0 +1,1 @@
+SEASON_START = '1948-49'

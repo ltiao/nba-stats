@@ -109,6 +109,7 @@ class Team(NBAModel):
     logo = models.FileField(upload_to='logos', null=True)
     division = models.ForeignKey(Division, null=True)
     arena = models.ForeignKey(Arena, null=True)
+    players = models.ManyToManyField(Player, through='Contract')
 
     @property
     def name(self):
@@ -124,7 +125,16 @@ class Team(NBAModel):
     class Meta:
         unique_together = ("city", "nickname")
 
-class Game(NBAModel):
+class Contract(models.Model):
 
+    player = models.ForeignKey(Player)
+    team = models.ForeignKey(Team)
+
+class Salary(models.Model):
+
+    amount = models.PositiveIntegerField()
+    contract = models.ForeignKey(Contract)
+
+class Game(NBAModel):
     attendance = models.PositiveIntegerField()
     
