@@ -554,7 +554,7 @@ list_of_lists_to_iter_of_dicts = lambda lst, cols: (dict(zip(cols, row)) for row
 list_of_lists_to_list_of_dicts = lambda lst, cols: list(list_of_lists_to_iter_of_dicts(lst, cols))
 
 split_dict_to_iter_of_dicts = lambda d, iterable_key, header_key: \
-    iter_of_list_to_iter_of_dicts(d.get(iterable_key, []), d.get(header_key, []))
+    iter_of_list_to_iter_of_dicts(d[iterable_key], d[header_key])
 
 split_dict_to_list_of_dicts = lambda d, iterable_key, header_key: \
     list(split_dict_to_iter_of_dicts(d, iterable_key, header_key))
@@ -581,15 +581,19 @@ split_dict_to_list_of_dicts.__doc__ = """
 True
 
 >>> split_dict_to_list_of_dicts(a, 'rowSet', 'header')
-[]
+Traceback (most recent call last):
+    ...
+KeyError: 'rowSet'
 
 >>> split_dict_to_list_of_dicts(a, 'rowSet', 'Headers')
-[]
+Traceback (most recent call last):
+    ...
+KeyError: 'rowSet'
 
 >>> split_dict_to_list_of_dicts(a, 'rows', 'Headers')
 Traceback (most recent call last):
     ...
-ValueError: empty header
+KeyError: 'Headers'
 """
 
 if __name__ == "__main__":
