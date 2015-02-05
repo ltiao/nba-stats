@@ -1,4 +1,6 @@
 from django.contrib import admin
+from mptt.admin import MPTTModelAdmin
+
 from nba.models import Player, League, Conference, \
 	Division, School, Team, Arena, Contract, Group
 
@@ -33,7 +35,7 @@ admin.site.register(Player, PlayerAdmin)
 admin.site.register(League)
 admin.site.register(Conference)
 admin.site.register(Division)
-admin.site.register(Group)
+admin.site.register(Group, MPTTModelAdmin)
 admin.site.register(School)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Arena)

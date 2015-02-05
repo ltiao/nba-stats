@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import date, datetime
+from mptt.models import MPTTModel, TreeForeignKey
 
 class NBAModelManager(models.Manager):
    
@@ -64,16 +65,19 @@ class Player(Person, NBAModel):
         null = True
     )
 
-class Group(models.Model):
-    
+class Group(MPTTModel):
+
     name = models.CharField(max_length=60)
-    parent = models.ForeignKey('self', null=True, related_name='children')
+    parent = TreeForeignKey('self', null=True, related_name='children')
 
     def __unicode__(self):
         return self.name
 
     class Meta:
         ordering = ['name']
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
 class League(Group):
     pass
