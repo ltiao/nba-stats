@@ -64,14 +64,10 @@ class Player(Person, NBAModel):
         null = True
     )
 
-class League(models.Model):
+class Group(models.Model):
     
     name = models.CharField(max_length=60)
-
-class Conference(models.Model):
-   
-    name = models.CharField(max_length=60)
-    league = models.ForeignKey(League, null=True)
+    parent = models.ForeignKey('self', null=True, related_name='children')
 
     def __unicode__(self):
         return self.name
@@ -79,16 +75,14 @@ class Conference(models.Model):
     class Meta:
         ordering = ['name']
 
-class Division(models.Model):
-    
-    name = models.CharField(max_length=60)
-    conference = models.ForeignKey(Conference)
+class League(Group):
+    pass
 
-    def __unicode__(self):
-        return self.name
+class Conference(Group):
+    pass
 
-    class Meta:
-        ordering = ['name']
+class Division(Group):
+    pass
 
 class Arena(models.Model):
 
