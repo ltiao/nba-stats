@@ -2,6 +2,8 @@ from django.db import models
 from datetime import date, datetime
 from mptt.models import MPTTModel, TreeForeignKey
 
+from common.utils import datetime_range, YEAR_DELTA
+
 class NBAModelManager(models.Manager):
    
     def get_by_natural_key(self, nba_id):
@@ -41,7 +43,6 @@ class Person(models.Model):
         return self.full_name
 
     class Meta:
-        abstract = True
         ordering = ['first_name', 'last_name']
 
 class School(models.Model):
@@ -123,16 +124,19 @@ class Team(NBAModel):
     class Meta:
         unique_together = ("city", "nickname")
 
-class Contract(models.Model):
+class Season(models.Model):
 
-    player = models.ForeignKey(Player)
-    team = models.ForeignKey(Team)
+    YEARS = datetime_range(datetime.today().year, -YEAR_DELTA)
 
-class Salary(models.Model):
+    salary_cap = models.PositiveIntegerField()
+    start_year = models.PositiveSmallIntegerField(max_length=2)
+    end_year = models.PositiveSmallIntegerField(max_length=2)
 
-    amount = models.PositiveIntegerField()
-    contract = models.ForeignKey(Contract)
+    def __unicode__(self):
+        return 
 
 class Game(NBAModel):
+
     attendance = models.PositiveIntegerField()
-    
+    home = models.ForeignKey(Team)
+    away = models.ForeignKey(Team)

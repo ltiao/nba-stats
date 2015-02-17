@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SQLContainer>
+    <SQLTable>
+        <name><![CDATA[Person]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>512.00</x>
+            <y>768.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>6</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[63B0014B-62A2-4AE1-A0AE-290C19811120]]></uid>
+        </SQLField>
+        <uid><![CDATA[06907152-7AE0-47E4-9EE9-622A5FAC58C6]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Personnel]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>512.00</x>
+            <y>960.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>9</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <uid><![CDATA[8A6682CA-8124-4D22-9615-D9E4BCC63A3D]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[person]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Person</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Person]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[63B0014B-62A2-4AE1-A0AE-290C19811120]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[06907152-7AE0-47E4-9EE9-622A5FAC58C6]]></referencesTableUID>
+            <uid><![CDATA[672FBC6A-E9E1-46BF-A9AC-32582193C6E6]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[role]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>PersonnelRole</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[PersonnelRole]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[B35E9C3E-3076-4906-AA82-9AD964EC8667]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[AB45E83F-DEC4-4172-B9A3-CAB1C285EF2E]]></referencesTableUID>
+            <uid><![CDATA[B138A897-4B45-4E53-B9FB-CE5E58069FB0]]></uid>
+        </SQLField>
+        <uid><![CDATA[2FD2FB3B-D648-4648-B18D-A8A20DBED0B3]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Coach]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>256.00</x>
+            <y>896.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>7</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <uid><![CDATA[592AFC53-BA2F-450A-9AB8-B30CC817B226]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[person]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Person</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Person]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[63B0014B-62A2-4AE1-A0AE-290C19811120]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[06907152-7AE0-47E4-9EE9-622A5FAC58C6]]></referencesTableUID>
+            <uid><![CDATA[A26E7F7C-A3CD-4D13-98B0-3830D188CFC0]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[role]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>CoachRole</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[CoachRole]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[0C987498-76E4-4DBD-A6DC-E57BC50E1A74]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[C817BCD7-B698-4B60-92D4-AFD045FBEA03]]></referencesTableUID>
+            <uid><![CDATA[BC219ECA-EED1-49DB-98C3-F5829E6226E6]]></uid>
+        </SQLField>
+        <uid><![CDATA[31059FF1-3479-40D8-BEDB-B38313A12FB1]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Referee]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>768.00</x>
+            <y>768.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>8</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <uid><![CDATA[B9D41916-07BE-4D6B-83F7-6992A2F1C433]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[person]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Person</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Person]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[63B0014B-62A2-4AE1-A0AE-290C19811120]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[06907152-7AE0-47E4-9EE9-622A5FAC58C6]]></referencesTableUID>
+            <uid><![CDATA[C81C9C0F-4791-466E-80A4-E99279E467B8]]></uid>
+        </SQLField>
+        <uid><![CDATA[36EF0250-990F-4D41-A36E-7C4E38831F58]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Boxscore]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>576.00</x>
+            <y>128.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>256.00</height>
+        </size>
+        <zorder>2</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <uid><![CDATA[9A49D106-1E7F-450C-BA72-423E3E1588ED]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[game]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Game</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Game]]></referencesTable>
+            <sourceCardinality>5</sourceCardinality>
+            <destinationCardinality>1</destinationCardinality>
+            <referencesFieldUID><![CDATA[C33A77DD-4202-44BB-AE7C-EADB9C0C5DB7]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[D5DF5C9D-2F81-4CA5-BDA5-FE653C76463C]]></referencesTableUID>
+            <uid><![CDATA[091ABA55-F552-4942-A102-2586DE638162]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[team]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Team</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Team]]></referencesTable>
+            <sourceCardinality>5</sourceCardinality>
+            <destinationCardinality>1</destinationCardinality>
+            <referencesFieldUID><![CDATA[B8DD4C3A-1610-4AE4-A8DF-D35669154DDD]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[46B8C627-A238-406D-8CAA-9ADB90C34497]]></referencesTableUID>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <uid><![CDATA[5DD93BA0-681F-4D44-9E90-CBCBC413A364]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[player]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Player</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Player]]></referencesTable>
+            <sourceCardinality>5</sourceCardinality>
+            <destinationCardinality>1</destinationCardinality>
+            <referencesFieldUID><![CDATA[45B316D6-DD1D-4517-B49C-FEFB52CE8C99]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[F04E08F8-D51E-4BAF-ADDF-18745A31AC75]]></referencesTableUID>
+            <uid><![CDATA[D93B7F89-1A35-43E0-9CCF-48DBBB33C091]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[traditional]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Traditional</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Traditional]]></referencesTable>
+            <sourceCardinality>1</sourceCardinality>
+            <destinationCardinality>2</destinationCardinality>
+            <referencesFieldUID><![CDATA[0F3E13A5-E902-4310-8924-45D9DA42937A]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[A7D5911E-9B7F-4138-BA48-32536BD04855]]></referencesTableUID>
+            <uid><![CDATA[0D1F280B-3150-42CF-B1FB-03A716E200C2]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[advanced]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Advanced</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Advanced]]></referencesTable>
+            <sourceCardinality>1</sourceCardinality>
+            <destinationCardinality>2</destinationCardinality>
+            <referencesFieldUID><![CDATA[C7103786-B27A-4AD6-B23A-5049D228AA5B]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[FB7DBA7D-5773-4255-950B-DE9D39F15492]]></referencesTableUID>
+            <uid><![CDATA[7479B8E3-408E-432F-A344-BCB00033E6A7]]></uid>
+        </SQLField>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[380014FF-52FF-45C8-8510-69334D148CD8]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Team]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>320.00</x>
+            <y>192.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>1</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[B8DD4C3A-1610-4AE4-A8DF-D35669154DDD]]></uid>
+        </SQLField>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[46B8C627-A238-406D-8CAA-9ADB90C34497]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Traditional]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>832.00</x>
+            <y>64.00</y>
+        </location>
+        <size>
+            <width>128.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>4</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[0F3E13A5-E902-4310-8924-45D9DA42937A]]></uid>
+        </SQLField>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[A7D5911E-9B7F-4138-BA48-32536BD04855]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[PersonnelRole]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>768.00</x>
+            <y>960.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>10</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[B35E9C3E-3076-4906-AA82-9AD964EC8667]]></uid>
+        </SQLField>
+        <uid><![CDATA[AB45E83F-DEC4-4172-B9A3-CAB1C285EF2E]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Season]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>64.00</x>
+            <y>320.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>12</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[2CE88161-1983-404C-821E-7960BC546214]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[salary_cap]]></name>
+            <type><![CDATA[IntegerField]]></type>
+            <uid><![CDATA[2FB4AFF2-97FE-48EA-87C8-9FAF215383CB]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[start_year]]></name>
+            <type><![CDATA[PositiveSmallIntegerField]]></type>
+            <uid><![CDATA[772894A2-98BE-4062-BFAB-9EAD2E51FF2D]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[end_year]]></name>
+            <type><![CDATA[PositiveSmallIntegerField]]></type>
+            <uid><![CDATA[D5FEF872-64EB-4FCC-93F3-6E01AC4EF59D]]></uid>
+        </SQLField>
+        <uid><![CDATA[C0AFD236-4530-4B28-A4F7-CA7FABF14F4F]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[CoachRole]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>1.00</x>
+            <y>896.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>11</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[0C987498-76E4-4DBD-A6DC-E57BC50E1A74]]></uid>
+        </SQLField>
+        <uid><![CDATA[C817BCD7-B698-4B60-92D4-AFD045FBEA03]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Game]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>64.00</x>
+            <y>64.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>192.00</height>
+        </size>
+        <zorder>3</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[C33A77DD-4202-44BB-AE7C-EADB9C0C5DB7]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[home]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Team</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Team]]></referencesTable>
+            <sourceCardinality>5</sourceCardinality>
+            <destinationCardinality>1</destinationCardinality>
+            <referencesFieldUID><![CDATA[B8DD4C3A-1610-4AE4-A8DF-D35669154DDD]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[46B8C627-A238-406D-8CAA-9ADB90C34497]]></referencesTableUID>
+            <uid><![CDATA[E9000708-1ED0-4D4C-A9A3-62C00B867F33]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[away]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Team</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Team]]></referencesTable>
+            <sourceCardinality>5</sourceCardinality>
+            <destinationCardinality>1</destinationCardinality>
+            <referencesFieldUID><![CDATA[B8DD4C3A-1610-4AE4-A8DF-D35669154DDD]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[46B8C627-A238-406D-8CAA-9ADB90C34497]]></referencesTableUID>
+            <uid><![CDATA[B7F77033-08BF-4B5B-AE4F-364055904D3F]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[season]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Season</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Season]]></referencesTable>
+            <sourceCardinality>5</sourceCardinality>
+            <destinationCardinality>1</destinationCardinality>
+            <referencesFieldUID><![CDATA[2CE88161-1983-404C-821E-7960BC546214]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[C0AFD236-4530-4B28-A4F7-CA7FABF14F4F]]></referencesTableUID>
+            <uid><![CDATA[2E76A870-5FE2-4868-8D16-D1D33C50D417]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[attendance]]></name>
+            <type><![CDATA[IntegerField]]></type>
+            <uid><![CDATA[E74BF960-4C4D-46D8-BA0E-4CE15553F2F5]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[duration]]></name>
+            <type><![CDATA[FloatField]]></type>
+            <uid><![CDATA[8CCF8335-DBB4-4993-BDB7-C61B95C42A83]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[date]]></name>
+            <type><![CDATA[DateField]]></type>
+            <uid><![CDATA[F9F4BB73-A77F-453B-A516-EBE781ABC0D3]]></uid>
+        </SQLField>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[D5DF5C9D-2F81-4CA5-BDA5-FE653C76463C]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Player]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>320.00</x>
+            <y>384.00</y>
+        </location>
+        <size>
+            <width>192.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>0</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[45B316D6-DD1D-4517-B49C-FEFB52CE8C99]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[person]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <referencesField>id</referencesField>
+            <referencesTable>Person</referencesTable>
+            <referencesField><![CDATA[id]]></referencesField>
+            <referencesTable><![CDATA[Person]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[63B0014B-62A2-4AE1-A0AE-290C19811120]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[06907152-7AE0-47E4-9EE9-622A5FAC58C6]]></referencesTableUID>
+            <uid><![CDATA[E58B18DB-CDBE-4ECA-9CE4-DD77900A6137]]></uid>
+        </SQLField>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[F04E08F8-D51E-4BAF-ADDF-18745A31AC75]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Advanced]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>832.00</x>
+            <y>256.00</y>
+        </location>
+        <size>
+            <width>128.00</width>
+            <height>128.00</height>
+        </size>
+        <zorder>5</zorder>
+        <SQLField>
+            <name><![CDATA[id]]></name>
+            <type><![CDATA[AutoField]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <uid><![CDATA[C7103786-B27A-4AD6-B23A-5049D228AA5B]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[0]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[FB7DBA7D-5773-4255-950B-DE9D39F15492]]></uid>
+    </SQLTable>
+    <SQLDocumentInfo>
+        <encodedPrintInfo><![CDATA[BAtzdHJlYW10eXBlZIHoA4QBQISEhAtOU1ByaW50SW5mbwGEhAhOU09iamVjdACF
+koSEhBNOU011dGFibGVEaWN0aW9uYXJ5AISEDE5TRGljdGlvbmFyeQCUhAFpDZKE
+hIQITlNTdHJpbmcBlIQBKw5OU1BNUGFnZUZvcm1hdIaShISEDU5TTXV0YWJsZURh
+dGEAhIQGTlNEYXRhAJSXgZUZhAdbNjU0OWNdPD94bWwgdmVyc2lvbj0iMS4wIiBl
+bmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBw
+bGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFRE
+cy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8
+ZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1Ib3Jpem9u
+dGFsUmVzPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr
+ZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwv
+c3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8
+L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJp
+bnQuUGFnZUZvcm1hdC5QTUhvcml6b250YWxSZXM8L2tleT4KCQkJCTxyZWFsPjcy
+PC9yZWFsPgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxh
+Zzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwv
+YXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0
+LlBNT3JpZW50YXRpb248L2tleT4KCTxkaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0cmluZz5jb20uYXBwbGUuam9i
+dGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0
+ZW1BcnJheTwva2V5PgoJCTxhcnJheT4KCQkJPGRpY3Q+CgkJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC5QYWdlRm9ybWF0LlBNT3JpZW50YXRpb248L2tleT4KCQkJCTxp
+bnRlZ2VyPjE8L2ludGVnZXI+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr
+ZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJCQk8
+L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50
+LlBhZ2VGb3JtYXQuUE1TY2FsaW5nPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFw
+cGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp
+Y2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtl
+eT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTVNjYWxpbmc8L2tleT4KCQkJ
+CTxyZWFsPjE8L3JlYWw+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQu
+c3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJCQk8L2Rp
+Y3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LlBh
+Z2VGb3JtYXQuUE1WZXJ0aWNhbFJlczwva2V5PgoJPGRpY3Q+CgkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQk8c3RyaW5nPmNvbS5h
+cHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50
+aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4KCQkJCTxr
+ZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1WZXJ0aWNhbFJlczwva2V5
+PgoJCQkJPHJlYWw+NzI8L3JlYWw+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50
+aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJ
+CQk8L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LlBhZ2VGb3JtYXQuUE1WZXJ0aWNhbFNjYWxpbmc8L2tleT4KCTxkaWN0PgoJ
+CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0
+cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBw
+bGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCTxhcnJheT4KCQkJPGRp
+Y3Q+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNVmVydGlj
+YWxTY2FsaW5nPC9rZXk+CgkJCQk8cmVhbD4xPC9yZWFsPgoJCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+
+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5
+PmNvbS5hcHBsZS5wcmludC5zdWJUaWNrZXQucGFwZXJfaW5mb190aWNrZXQ8L2tl
+eT4KCTxkaWN0PgoJCTxrZXk+UE1QUERQYXBlckNvZGVOYW1lPC9rZXk+CgkJPGRp
+Y3Q+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+
+CgkJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5
+PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJCTxhcnJh
+eT4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+UE1QUERQYXBlckNvZGVOYW1lPC9rZXk+
+CgkJCQkJPHN0cmluZz5BNDwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRl
+Z2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PlBN
+UFBEVHJhbnNsYXRpb25TdHJpbmdQYXBlck5hbWU8L2tleT4KCQk8ZGljdD4KCQkJ
+PGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0
+cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJ
+PGRpY3Q+CgkJCQkJPGtleT5QTVBQRFRyYW5zbGF0aW9uU3RyaW5nUGFwZXJOYW1l
+PC9rZXk+CgkJCQkJPHN0cmluZz5BNDwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4w
+PC9pbnRlZ2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8
+a2V5PlBNVGlvZ2FQYXBlck5hbWU8L2tleT4KCQk8ZGljdD4KCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0cmluZz5jb20u
+YXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50
+LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJ
+CQkJPGtleT5QTVRpb2dhUGFwZXJOYW1lPC9rZXk+CgkJCQkJPHN0cmluZz5pc28t
+YTQ8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3Rh
+dGVGbGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGlj
+dD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQu
+UGFnZUZvcm1hdC5QTUFkanVzdGVkUGFnZVJlY3Q8L2tleT4KCQk8ZGljdD4KCQkJ
+PGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0
+cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJ
+PGRpY3Q+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTUFk
+anVzdGVkUGFnZVJlY3Q8L2tleT4KCQkJCQk8YXJyYXk+CgkJCQkJCTxpbnRlZ2Vy
+PjA8L2ludGVnZXI+CgkJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCQkJCTxy
+ZWFsPjc4MzwvcmVhbD4KCQkJCQkJPHJlYWw+NTU5PC9yZWFsPgoJCQkJCTwvYXJy
+YXk+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwv
+a2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCQk8L2RpY3Q+CgkJCTwv
+YXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3Jt
+YXQuUE1BZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNv
+bS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNv
+bS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJp
+bnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4K
+CQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNQWRqdXN0ZWRQ
+YXBlclJlY3Q8L2tleT4KCQkJCQk8YXJyYXk+CgkJCQkJCTxyZWFsPi0xODwvcmVh
+bD4KCQkJCQkJPHJlYWw+LTE4PC9yZWFsPgoJCQkJCQk8cmVhbD44MjQ8L3JlYWw+
+CgkJCQkJCTxyZWFsPjU3NzwvcmVhbD4KCQkJCQk8L2FycmF5PgoJCQkJCTxrZXk+
+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50
+ZWdlcj4wPC9pbnRlZ2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGlj
+dD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYXBlckluZm8uUE1QYXBlck5hbWU8
+L2tleT4KCQk8ZGljdD4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNy
+ZWF0b3I8L2tleT4KCQkJPHN0cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJp
+bmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tl
+eT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5jb20uYXBwbGUucHJp
+bnQuUGFwZXJJbmZvLlBNUGFwZXJOYW1lPC9rZXk+CgkJCQkJPHN0cmluZz5pc28t
+YTQ8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3Rh
+dGVGbGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGlj
+dD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQu
+UGFwZXJJbmZvLlBNVW5hZGp1c3RlZFBhZ2VSZWN0PC9rZXk+CgkJPGRpY3Q+CgkJ
+CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJCTxz
+dHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJCTxhcnJheT4KCQkJ
+CTxkaWN0PgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhcGVySW5mby5QTVVu
+YWRqdXN0ZWRQYWdlUmVjdDwva2V5PgoJCQkJCTxhcnJheT4KCQkJCQkJPGludGVn
+ZXI+MDwvaW50ZWdlcj4KCQkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCQkJ
+PHJlYWw+NzgzPC9yZWFsPgoJCQkJCQk8cmVhbD41NTk8L3JlYWw+CgkJCQkJPC9h
+cnJheT4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFn
+PC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJ
+PC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFwZXJJ
+bmZvLlBNVW5hZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCTxkaWN0PgoJCQk8a2V5
+PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5n
+PmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUu
+cHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGlj
+dD4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYXBlckluZm8uUE1VbmFkanVz
+dGVkUGFwZXJSZWN0PC9rZXk+CgkJCQkJPGFycmF5PgoJCQkJCQk8cmVhbD4tMTg8
+L3JlYWw+CgkJCQkJCTxyZWFsPi0xODwvcmVhbD4KCQkJCQkJPHJlYWw+ODI0PC9y
+ZWFsPgoJCQkJCQk8cmVhbD41Nzc8L3JlYWw+CgkJCQkJPC9hcnJheT4KCQkJCQk8
+a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJ
+PGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8
+L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFwZXJJbmZvLnBwZC5QTVBh
+cGVyTmFtZTwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50
+aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5qb2J0aWNr
+ZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1B
+cnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC5QYXBlckluZm8ucHBkLlBNUGFwZXJOYW1lPC9rZXk+CgkJCQkJ
+PHN0cmluZz5BNDwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp
+Y2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJ
+CQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PmNvbS5hcHBs
+ZS5wcmludC50aWNrZXQuQVBJVmVyc2lvbjwva2V5PgoJCTxzdHJpbmc+MDAuMjA8
+L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQudHlwZTwva2V5
+PgoJCTxzdHJpbmc+Y29tLmFwcGxlLnByaW50LlBhcGVySW5mb1RpY2tldDwvc3Ry
+aW5nPgoJPC9kaWN0PgoJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LkFQSVZl
+cnNpb248L2tleT4KCTxzdHJpbmc+MDAuMjA8L3N0cmluZz4KCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC50eXBlPC9rZXk+Cgk8c3RyaW5nPmNvbS5hcHBsZS5w
+cmludC5QYWdlRm9ybWF0VGlja2V0PC9zdHJpbmc+CjwvZGljdD4KPC9wbGlzdD4K
+hpKEmZkLTlNQYXBlclNpemWGkoSEhAdOU1ZhbHVlAJSEASqEhAt7Q0dTaXplPWRk
+fZ+BUwKBSgOGkoSZmRZOU0hvcml6b250YWxseUNlbnRlcmVkhpKEhIQITlNOdW1i
+ZXIAn56EhAFjoQGGkoSZmRROU1ZlcnRpY2FsbHlDZW50ZXJlZIaSopKEmZkMTlNM
+ZWZ0TWFyZ2luhpKEo56EhAFkohKGkoSZmQ1OU1JpZ2h0TWFyZ2luhpKEo56oohKG
+koSZmQtOU1RvcE1hcmdpboaShKOeqKIehpKEmZkNTlNPcmllbnRhdGlvboaShKOe
+hIQBcaMAhpKEmZkVTlNIb3Jpem9uYWxQYWdpbmF0aW9uhpKukoSZmRROU1ZlcnRp
+Y2FsUGFnaW5hdGlvboaSrpKEmZkOTlNCb3R0b21NYXJnaW6GkoSjnqiiNYaShJmZ
+D05TU2NhbGluZ0ZhY3RvcoaShKOeqKIBhpKEmZkLTlNQYXBlck5hbWWGkoSZmQZp
+c28tYTSGhoY=
+]]></encodedPrintInfo>
+        <autoSizeTablesOption><![CDATA[0]]></autoSizeTablesOption>
+        <documentScaleFactor><![CDATA[1]]></documentScaleFactor>
+        <exportDialect><![CDATA[Django]]></exportDialect>
+        <fileversion><![CDATA[3.1]]></fileversion>
+        <generator><![CDATA[com.malcolmhardie.sqleditor]]></generator>
+        <generatorVersion><![CDATA[2.0]]></generatorVersion>
+        <hideFieldIcons><![CDATA[0]]></hideFieldIcons>
+        <hideFieldTypes><![CDATA[0]]></hideFieldTypes>
+        <pageBoundariesVisible><![CDATA[1]]></pageBoundariesVisible>
+        <PageGridVisible><![CDATA[1]]></PageGridVisible>
+        <sidebarIndex><![CDATA[0]]></sidebarIndex>
+        <snapToGrid><![CDATA[1]]></snapToGrid>
+        <SourceSidebarWidth><![CDATA[276.000000]]></SourceSidebarWidth>
+        <uid><![CDATA[DD578E74-3EA9-4198-9FA3-DA06DACBAE47]]></uid>
+        <windowHeight><![CDATA[760.000000]]></windowHeight>
+        <windowLocationX><![CDATA[50.000000]]></windowLocationX>
+        <windowLocationY><![CDATA[17.000000]]></windowLocationY>
+        <windowScrollOrigin><![CDATA[{0, 66}]]></windowScrollOrigin>
+        <windowWidth><![CDATA[1097.000000]]></windowWidth>
+    </SQLDocumentInfo>
+    <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>
+    <containerName><![CDATA[model controller orginal container]]></containerName>
+</SQLContainer>

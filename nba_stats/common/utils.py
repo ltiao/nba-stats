@@ -29,12 +29,31 @@ datetime.datetime(2006, 12, 31, 0, 0)
 import datetime
 
 from dateutil import relativedelta
-from itertools import chain
+from itertools import chain, islice
 
 # TODO: Unit/regression testing
 # TODO: Documentation
 
 YEAR_DELTA = relativedelta.relativedelta(years=1)
+
+def datetime_count(start, step=YEAR_DELTA):
+    """
+    >>> start = datetime.datetime(2003, 4, 4)
+
+    >>> list(islice(datetime_count(start), 5)) #doctest: +NORMALIZE_WHITESPACE
+    [datetime.datetime(2003, 4, 4, 0, 0), datetime.datetime(2004, 4, 4, 0, 0), 
+    datetime.datetime(2005, 4, 4, 0, 0), datetime.datetime(2006, 4, 4, 0, 0), 
+    datetime.datetime(2007, 4, 4, 0, 0)]
+
+    >>> list(islice(datetime_count(start, -YEAR_DELTA), 5)) #doctest: +NORMALIZE_WHITESPACE
+    [datetime.datetime(2003, 4, 4, 0, 0), datetime.datetime(2002, 4, 4, 0, 0), 
+    datetime.datetime(2001, 4, 4, 0, 0), datetime.datetime(2000, 4, 4, 0, 0), 
+    datetime.datetime(1999, 4, 4, 0, 0)]
+    """
+    current = start
+    while True:
+        yield current
+        current += step
 
 def datetime_range(start, stop, step):
     """
@@ -568,7 +587,7 @@ split_dict_to_list_of_dicts.__doc__ = """
 ...         [5, 'Kaylee', 'Frye'],
 ...         [7, 'Wash', 'Washburne'],
 ...     ],
-...     'header': ['id', 'first_name', 'last_name']
+...     'header': ['id', 'first_name', 'last_name'],
 ...     'other': 'anything else'
 ... }
 
