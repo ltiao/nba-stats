@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'nba',
     'mptt',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (

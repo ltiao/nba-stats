@@ -49,6 +49,12 @@ def datetime_count(start, step=YEAR_DELTA):
     [datetime.datetime(2003, 4, 4, 0, 0), datetime.datetime(2002, 4, 4, 0, 0), 
     datetime.datetime(2001, 4, 4, 0, 0), datetime.datetime(2000, 4, 4, 0, 0), 
     datetime.datetime(1999, 4, 4, 0, 0)]
+
+    >>> [datetime.datetime.strftime(d, '%Y') for d in
+    ... islice(datetime_count(datetime.datetime.today(), -YEAR_DELTA), 10)] 
+    ... #doctest: +NORMALIZE_WHITESPACE
+    ['2015', '2014', '2013', '2012', '2011', 
+    '2010', '2009', '2008', '2007', '2006']
     """
     current = start
     while True:

@@ -2,7 +2,7 @@ from django.contrib import admin
 from mptt.admin import MPTTModelAdmin
 
 from nba.models import Player, League, Conference, \
-	Division, School, Team, Arena, Contract, Group
+	Division, School, Team, Arena, PlayerMembership, Group, Season, Game
 
 # class ChoiceInline(admin.TabularInline):
 #     model = Choice
@@ -21,21 +21,22 @@ from nba.models import Player, League, Conference, \
 # admin.site.register(Choice)
 # admin.site.register(Question, QuestionAdmin)
 
-class ContractInline(admin.TabularInline):
-	model = Contract
+class PlayerMembershipInline(admin.TabularInline):
+	model = PlayerMembership
 	extra = 3
 
 class TeamAdmin(admin.ModelAdmin):
-	inlines = (ContractInline,)
+	inlines = (PlayerMembershipInline,)
 
 class PlayerAdmin(admin.ModelAdmin):
-	inlines = (ContractInline,)
+	inlines = (PlayerMembershipInline,)
 
 admin.site.register(Player, PlayerAdmin)
-admin.site.register(League)
 admin.site.register(Conference)
 admin.site.register(Division)
 admin.site.register(Group, MPTTModelAdmin)
 admin.site.register(School)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Arena)
+admin.site.register(Season)
+admin.site.register(Game)
